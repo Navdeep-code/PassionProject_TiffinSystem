@@ -32,8 +32,12 @@ namespace PassionProject_TiffinSystem.Models
         public DbSet<Meal> Meals { get; set; }
 
         //Add Food entity to our system
-
         public DbSet<Food> food { get; set; }
+
+        //Add the bridging table between schedule and meal
+
+        public DbSet<SchedulexMeal> SchedulexMeals { get; set; }
+
 
 
 

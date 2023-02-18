@@ -187,6 +187,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealsDataController.cs" />
     <Compile Include="Controllers\SchedulesDataController.cs" />
+    <Compile Include="Controllers\SchedulexMealDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,6 +207,14 @@
     <Compile Include="Migrations\202302131516041_meal-food.designer.cs">
       <DependentUpon>202302131516041_meal-food.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302141612425_bridgingtabledelete.cs" />
+    <Compile Include="Migrations\202302141612425_bridgingtabledelete.designer.cs">
+      <DependentUpon>202302141612425_bridgingtabledelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302172343496_schedule-meal.cs" />
+    <Compile Include="Migrations\202302172343496_schedule-meal.designer.cs">
+      <DependentUpon>202302172343496_schedule-meal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Food.cs" />
@@ -213,6 +222,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\SchedulexMeal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -302,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302131516041_meal-food.resx">
       <DependentUpon>202302131516041_meal-food.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302141612425_bridgingtabledelete.resx">
+      <DependentUpon>202302141612425_bridgingtabledelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302172343496_schedule-meal.resx">
+      <DependentUpon>202302172343496_schedule-meal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

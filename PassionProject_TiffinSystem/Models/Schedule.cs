@@ -17,7 +17,7 @@ namespace PassionProject_TiffinSystem.Models
         //Schedule can have many meals
         //A meal can be a part of many schedules
 
-        public ICollection<Meal> Meals { get; set; }
+     //   public ICollection<Meal> Meals { get; set; }
 
     }
 
