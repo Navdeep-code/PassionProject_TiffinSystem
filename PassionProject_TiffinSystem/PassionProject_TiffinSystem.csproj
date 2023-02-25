@@ -182,11 +182,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\FoodsDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\MealsDataController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SchedulesDataController.cs" />
+    <Compile Include="Controllers\SchedulexMealController.cs" />
     <Compile Include="Controllers\SchedulexMealDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,6 +219,14 @@
     <Compile Include="Migrations\202302172343496_schedule-meal.designer.cs">
       <DependentUpon>202302172343496_schedule-meal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302240442520_Updatefood.cs" />
+    <Compile Include="Migrations\202302240442520_Updatefood.designer.cs">
+      <DependentUpon>202302240442520_Updatefood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302240517272_DeleteMealxFood.cs" />
+    <Compile Include="Migrations\202302240517272_DeleteMealxFood.designer.cs">
+      <DependentUpon>202302240517272_DeleteMealxFood.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Food.cs" />
@@ -223,6 +235,8 @@
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\SchedulexMeal.cs" />
+    <Compile Include="Models\ViewModels\AddMeal.cs" />
+    <Compile Include="Models\ViewModels\UpdateMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -283,9 +297,27 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Schedule\List.cshtml" />
+    <Content Include="Views\Schedule\New.cshtml" />
+    <Content Include="Views\Schedule\Error.cshtml" />
+    <Content Include="Views\Schedule\Edit.cshtml" />
+    <Content Include="Views\Schedule\DeleteConfirm.cshtml" />
+    <Content Include="Views\SchedulexMeal\New.cshtml" />
+    <Content Include="Views\SchedulexMeal\Error.cshtml" />
+    <Content Include="Views\SchedulexMeal\Details.cshtml" />
+    <Content Include="Views\Food\New.cshtml" />
+    <Content Include="Views\Food\List.cshtml" />
+    <Content Include="Views\Food\Detail.cshtml" />
+    <Content Include="Views\Food\Error.cshtml" />
+    <Content Include="Views\Food\Edit.cshtml" />
+    <Content Include="Views\Food\DeleteConfirm.cshtml" />
+    <Content Include="Views\SchedulexMeal\List.cshtml" />
+    <Content Include="Views\SchedulexMeal\DeleteConfirm.cshtml" />
+    <Content Include="Views\SchedulexMeal\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Meal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -318,6 +350,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302172343496_schedule-meal.resx">
       <DependentUpon>202302172343496_schedule-meal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302240442520_Updatefood.resx">
+      <DependentUpon>202302240442520_Updatefood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302240517272_DeleteMealxFood.resx">
+      <DependentUpon>202302240517272_DeleteMealxFood.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

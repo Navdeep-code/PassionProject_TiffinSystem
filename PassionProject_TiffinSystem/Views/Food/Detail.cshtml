@@ -1,0 +1,14 @@
+﻿@model PassionProject_TiffinSystem.Models.FoodDto
+
+@{
+    ViewBag.Title = "Detail";
+}
+<div style=" border: 1px solid #000; padding: 1em; margin: 1em;">
+    <h2>Item Details</h2>
+    <p>Food Item Name: @Model.ItemName</p>
+    <p>Food Type: @Model.Foodtype</p>
+    <p>Vegetarian or Meat: @Model.Vegetarian</p>
+    <a href="/Food/Edit/@Model.FoodID">Update</a>
+    <a style="color:#ab2020; float:right" href="/Food/DeleteConfirm/@Model.FoodID">Delete</a>
+
+</div>

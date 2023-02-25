@@ -18,7 +18,7 @@ namespace PassionProject_TiffinSystem.Models
 
       //  public ICollection<Schedule> Schedules { get; set; }
 
-        public ICollection<Food> food { get; set; }
+        //public ICollection<Food> food { get; set; }
     }
 
     public class MealDto {

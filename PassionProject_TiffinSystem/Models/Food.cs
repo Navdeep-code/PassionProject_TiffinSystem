@@ -15,12 +15,9 @@ namespace PassionProject_TiffinSystem.Models
 
         public string ItemName { get; set; }
 
-        public bool Vegetarian { get; set; }
+        public string Vegetarian { get; set; }
 
-        //A food item can be a part of many meals
-        //A meal can have many food items
 
-        public ICollection<Meal> Meals { get; set; }
     }
     public class FoodDto {
         public int FoodID { get; set; }
@@ -29,7 +26,7 @@ namespace PassionProject_TiffinSystem.Models
 
         public string ItemName { get; set; }
 
-        public bool Vegetarian { get; set; }
+        public string Vegetarian { get; set; }
     }
 
 

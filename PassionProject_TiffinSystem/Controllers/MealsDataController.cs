@@ -16,8 +16,17 @@ namespace PassionProject_TiffinSystem.Controllers
     public class MealsDataController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        /// <summary>
+        /// Returns all Meals in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all Meals in the database
+        /// </returns>
+        /// <example>
+        /// GET: api/MealsData/ListMeals
+        /// </example>
 
-        // GET: api/MealsData/ListMeals
         [HttpGet]
         public IEnumerable<MealDto> ListMeals()
         {
@@ -34,7 +43,19 @@ namespace PassionProject_TiffinSystem.Controllers
             return MealDtos;
         }
 
-        // GET: api/MealsData/FindMeal/5
+        /// <summary>
+        /// Returns all meals in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: An meal in the system matching up to the meal ID primary key
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <param name="id">The primary key of the meal</param>
+        /// <example>
+        /// GET: api/MealData/FindMeal/5
+        /// </example>
         [ResponseType(typeof(Meal))]
         [HttpGet]
         public IHttpActionResult FindMeal(int id)
@@ -54,8 +75,23 @@ namespace PassionProject_TiffinSystem.Controllers
 
             return Ok(MealDto);
         }
+        /// <summary>
+        /// Updates a particular meal in the system with POST Data input
+        /// </summary>
+        /// <param name="id">Represents the meal ID primary key</param>
+        /// <param name="meal">JSON FORM DATA of an meal</param>
+        /// <returns>
+        /// HEADER: 204 (Success, No Content Response)
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// or
+        /// HEADER: 404 (Not Found)
+        /// </returns>
+        /// <example>
+        /// POST: api/MealsData/UpdateMeal/5
+        /// FORM DATA:  JSON Object
+        /// </example>
 
-        // PUT: api/MealsData/UpdateMeal/5
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateMeal(int id, Meal meal)
@@ -90,8 +126,21 @@ namespace PassionProject_TiffinSystem.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        /// <summary>
+        /// Adds an Meal to the system
+        /// </summary>
+        /// <param name="meal">JSON FORM DATA of an meal</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT: meal ID, meal Data
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
         // POST: api/MealsData/AddMeal
+        /// FORM DATA: JSON Object
+        /// </example>
+
         [ResponseType(typeof(Meal))]
         [HttpPost]
         public IHttpActionResult AddMeal(Meal meal)
@@ -106,8 +155,20 @@ namespace PassionProject_TiffinSystem.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = meal.MealID }, meal);
         }
+        /// <summary>
+        /// Deletes an Meal from the system by it's ID.
+        /// </summary>
+        /// <param name="id">The primary key of the Meal</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <example>
+        // POST: api/MealsData/DeleteMeal/5
+        /// FORM DATA: (empty)
+        /// </example>
 
-        // DELETE: api/MealsData/DeleteMeal/5
         [ResponseType(typeof(Meal))]
         [HttpPost]
         public IHttpActionResult DeleteMeal(int id)

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<PassionProject_TiffinSystem.Models.SchedulexMealDto>
+@{
+    ViewBag.Title = "List";
+}
+<p><a href="/SchedulexMeal/New">New Menu</a></p>
+<h2>Added Menu List</h2>
+<div style=" border: 1px solid #000; padding: 1em; margin-top: 1em;">
+    @foreach (var menu in Model)
+    {
+        <p>StartDate: @menu.StartDate To EndDate: @menu.EndDate </p>
+        <p>Day: @menu.Day</p>
+        <p>MealType: @menu.Mealtype</p>
+        <p><a href="~/SchedulexMeal/Details/@menu.SchedulexMealId">View Menu</a></p>
+        <a href="/SchedulexMeal/Edit/@menu.SchedulexMealId">Update</a>
+        <a style="color:#ab2020; float:right" href="/SchedulexMeal/DeleteConfirm/@menu.SchedulexMealId">Delete</a>
+        <hr />
+    }
+
+</div>

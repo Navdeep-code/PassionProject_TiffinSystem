@@ -1,0 +1,16 @@
+﻿@model IEnumerable<PassionProject_TiffinSystem.Models.ScheduleDto>
+@{
+    ViewBag.Title = "List";
+}
+<p><a href="/Schedule/New">New Schedule</a></p>
+<h2>List of Schedules</h2>
+<div style=" border: 1px solid #000; padding: 1em; margin-top: 1em;">
+    @foreach (var schedule in Model)
+    {
+        <p>StartDate: @schedule.StartDate To EndDate: @schedule.EndDate </p>
+        <a href="/Schedule/Edit/@schedule.ScheduleID">Update</a>
+        <a style="color:#ab2020; float:right" href="/Schedule/DeleteConfirm/@schedule.ScheduleID">Delete</a>
+        <hr />
+    }
+
+</div>

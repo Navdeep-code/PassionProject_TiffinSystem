@@ -1,0 +1,18 @@
+﻿@model PassionProject_TiffinSystem.Models.SchedulexMealDto
+
+@{
+    ViewBag.Title = "Details";
+}
+<div style=" border: 1px solid #000; padding: 1em; margin-top: 1em; background-color:khaki">
+
+    <h2>Menu</h2>
+    <p>StartDate: @Model.StartDate To EndDate: @Model.EndDate </p>
+    <p>Day: @Model.Day</p>
+    <p>MealType: @Model.Mealtype</p>
+    <p>Food Item Name: @Model.ItemName</p>
+    <p>Food Type: @Model.Foodtype</p>
+    <p>Vegetarian or Meat: @Model.Vegetarian</p>
+    <a href="/SchedulexMeal/Edit/@Model.SchedulexMealId">Update</a>
+    <a style="color:#ab2020; float:right" href="/SchedulexMeal/DeleteConfirm/@Model.SchedulexMealId">Delete</a>
+
+</div>

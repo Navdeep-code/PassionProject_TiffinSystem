@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,9 +16,19 @@ namespace PassionProject_TiffinSystem.Controllers
     public class SchedulesDataController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        // GET: api/SchedulesData/ListSchedules
+        /// <summary>
+        /// Returns all Schedules in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: all Schedules in the database
+        /// </returns>
+        /// <example>
+        /// GET: api/SchedulesData/ListSchedules
+        /// </example>
+   
         [HttpGet]
+        [ResponseType(typeof(ScheduleDto))]
 
         public IEnumerable<ScheduleDto> ListSchedules()
         {
@@ -34,8 +45,20 @@ namespace PassionProject_TiffinSystem.Controllers
 
             return ScheduleDtos;
         }
+        /// <summary>
+        /// Returns all schedule in the system.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: A schedule in the system matching up to the schedule ID primary key
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <param name="id">The primary key of the Schedule</param>
+        /// <example>
+        /// GET: api/SchedulesData/FindSchedule/5
+        /// </example>
 
-        // GET: api/SchedulesData/FindSchedule/5
         [ResponseType(typeof(Schedule))]
         [HttpGet]
         public IHttpActionResult FindSchedule(int id)
@@ -55,7 +78,23 @@ namespace PassionProject_TiffinSystem.Controllers
             return Ok(ScheduleDto);
         }
 
-        // POST: api/SchedulesData/UpdateSchedule/5
+        /// <summary>
+        /// Updates a particular schedule in the system with POST Data input
+        /// </summary>
+        /// <param name="id">Represents the schedule ID primary key</param>
+        /// <param name="schedule">JSON FORM DATA of an Schedule</param>
+        /// <returns>
+        /// HEADER: 204 (Success, No Content Response)
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// or
+        /// HEADER: 404 (Not Found)
+        /// </returns>
+        /// <example>
+        /// POST: api/SchedulesData/UpdateSchedule/5
+        /// FORM DATA:  JSON Object
+        /// </example>
+
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateSchedule(int id, Schedule schedule)
@@ -90,8 +129,21 @@ namespace PassionProject_TiffinSystem.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        // POST: api/SchedulesData/AddSchedule
+        /// <summary>
+        /// Adds an Schedule to the system
+        /// </summary>
+        /// <param name="schedule">JSON FORM DATA of an meal</param>
+        /// <returns>
+        /// HEADER: 201 (Created)
+        /// CONTENT: Schedule ID, Schedule Data
+        /// or
+        /// HEADER: 400 (Bad Request)
+        /// </returns>
+        /// <example>
+        /// POST: api/SchedulesData/AddSchedule
+        /// FORM DATA: JSON Object
+        /// </example>
+   
         [ResponseType(typeof(Schedule))]
         [HttpPost]
         public IHttpActionResult AddSchedule(Schedule schedule)
@@ -107,7 +159,20 @@ namespace PassionProject_TiffinSystem.Controllers
             return CreatedAtRoute("DefaultApi", new { id = schedule.ScheduleID }, schedule);
         }
 
+        /// <summary>
+        /// Deletes an Schedule from the system by it's ID.
+        /// </summary>
+        /// <param name="id">The primary key of the Schedule</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// or
+        /// HEADER: 404 (NOT FOUND)
+        /// </returns>
+        /// <example>
         // POST: api/SchedulesData/DeleteSchedule/5
+        /// FORM DATA: (empty)
+        /// </example>
+
         [ResponseType(typeof(Schedule))]
         [HttpPost]
         public IHttpActionResult DeleteSchedule(int id)
@@ -137,5 +202,8 @@ namespace PassionProject_TiffinSystem.Controllers
         {
             return db.Schedules.Count(e => e.ScheduleID == id) > 0;
         }
+
+    
+
     }
 }
